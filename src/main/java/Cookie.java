@@ -1,9 +1,10 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Cookie {
@@ -15,12 +16,17 @@ public class Cookie {
 
         ArrayList<String> cookie_text = new ArrayList<>();
 
-        int i = 0;
-        Scanner sc = new Scanner(file);
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         while (sc.hasNext()){
             cookie_text.add(sc.nextLine());
         }
         sc.close();
         return cookie_text;
     }
+
 }
