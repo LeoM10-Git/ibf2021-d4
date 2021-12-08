@@ -3,6 +3,8 @@
 .idea
 /target
 .DS_Store
+*.iml
+
 # Log file
 *.log
 
